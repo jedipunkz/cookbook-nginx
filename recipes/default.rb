@@ -44,29 +44,3 @@ end
 # adding self ip address to attribute. by thirai
 meta_ipaddr = `curl -s http://169.254.169.254/latest/meta-data/local-ipv4`
 node.set["ipaddr"] = meta_ipaddr
-
-directory "/var/www/nginx-default" do
-  owner "www-data"
-  group "root"
-  mode "0755"
-  recursive true
-end
-
-cookbook_file "/var/www/nginx-default/index.html" do
-  source "index.html"
-  owner "www-data"
-  group "root"
-  mode "0644"
-end
-cookbook_file "/var/www/nginx-default/normalize.min.css" do
-  source "normalize.min.css"
-  owner "www-data"
-  group "root"
-  mode "0644"
-end
-cookbook_file "/var/www/nginx-default/main.css" do
-  source "main.css"
-  owner "www-data"
-  group "root"
-  mode "0644"
-end
